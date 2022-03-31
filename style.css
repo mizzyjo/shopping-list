@@ -1,54 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0;
+}
+
 button {
+  outline: none;
+  background: transparent;
   border: none;
   cursor: pointer;
 }
 
-.container {
+body {
+  background-color: #ced3df;
+  text-align: center;
+}
+
+.list {
+  width: 400px;
   margin: auto;
-  margin-top: 20px;
-  background-color: bisque;
-  width: 350px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: #f1f0f7;
+  border-radius: 20px;
+  -webkit-box-shadow: 5px 5px 15px 5px #bababa;
+  box-shadow: 5px 5px 15px 5px #bababa;
 }
 
-.nav {
-  padding: 10px;
+.header {
+  height: 48px;
+  padding: 8px;
+  font-size: 24px;
+  background: rgba(237, 193, 211);
+  background: linear-gradient(
+    166deg,
+    rgba(237, 193, 211, 1) 0%,
+    rgba(219, 192, 216, 1) 35%,
+    rgba(127, 188, 242, 1) 100%
+  );
+  border-radius: 20px 20px 0 0;
+  color: white;
 }
 
-ul {
-  background-color: aqua;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.items {
   height: 500px;
-  width: 100%;
-}
-
-.item-list {
-  background-color: palevioletred;
-  width: 100%;
+  overflow-y: auto;
 }
 
 .item {
-  padding-top: 10px;
-  margin: 0 10px 0px 10px;
-  /* margin-bottom: 5px; */
   display: flex;
   justify-content: space-between;
+  padding: 8px 32px;
 }
 
-.item-name {
-  display: inline-block;
+.item__delete {
+  font-size: 16px;
+  transition: all 300ms ease-in;
 }
 
-input {
+.item__delete:hover {
+  color: red;
+  transform: scale(1.1);
+}
+
+.itme__divider {
+  width: 90%;
+  height: 1px;
+  background-color: lightgrey;
+  margin: auto;
+}
+
+.footer {
+  background: rgba(237, 193, 211);
+  background: linear-gradient(
+    166deg,
+    rgba(237, 193, 211, 1) 0%,
+    rgba(219, 192, 216, 1) 35%,
+    rgba(127, 188, 242, 1) 100%
+  );
+  border-radius: 0 0 20px 20px;
+}
+
+.footer__input {
   width: 100%;
-  height: 25px;
-  padding: 0;
-  border: 0;
-  outline-style: none;
+  height: 32px;
+  border: none;
+  outline: none;
+  font-size: 24px;
+  padding: 0 16px;
+}
 
-  /* border: 1px solid #999; */
+.footer__button {
+  width: 48px;
+  height: 48px;
+  font-size: 28px;
+  background-color: black;
+  border-radius: 50%;
+  color: white;
+  transition: all 300ms ease-in;
+}
+
+.footer__button:hover {
+  transform: scale(1.1);
 }

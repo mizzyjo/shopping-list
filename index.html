@@ -12,22 +12,26 @@
 </head>
 
 <body>
-  <section class="container">
-    <header class="nav top">Shopping List</header>
-  <i class="fa-solid fa-trash-can"></i>
-  <section class="item-list">
+  <section class="list">
+    <header class="header">Shopping List</header>
     <ul class="items">
-      <li class="item"><div class="item-name">우유</div><button class="delete"><i class="far fa-trash-alt"></i></button></li>
-      <li class="item"><div class="item-name">계란</div><button class="delete"><i class="far fa-trash-alt"></i></button></li>
+      <li class="item__row">
+        <div class="item">
+          <span class="item__name">Egg</span>
+          <button class="item__delete">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+        <div class="itme__divider"></div>
+      </li>
     </ul>
-    <input type="text" class="input-form">
+    <footer class="footer">
+      <input type="text" class="footer__input">
+      <button class="footer__button">
+        <i class="fas fa-plus"></i>
+      </button>
+    </footer>
   </section>
-  <footer class="nav bottom">
-    <button class="plus">+</button>
-  </footer>
-
-  </section>
-  
 
 </body>
 
