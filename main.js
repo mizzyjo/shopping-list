@@ -5,10 +5,12 @@ const input = document.querySelector(".footer__input");
 let inputValue = null;
 
 const items = document.querySelector(".items");
+let cnt = 0;
 
 input.addEventListener("keypress", (event) => {
   if (event.key == "Enter") {
     addItem(event);
+    removeItem(cnt);
   }
 });
 
@@ -16,31 +18,8 @@ input.addEventListener("keypress", (event) => {
 const plusBtn = document.querySelector(".footer__button");
 plusBtn.addEventListener("click", (event) => {
   addItem(event);
+  removeItem(cnt);
 });
-
-// remove items
-const deleteBtn = document.querySelectorAll(".item__delete");
-const itemRow = document.querySelectorAll(".item__row");
-const item = document.querySelector(".item__delete");
-console.log("-=---");
-// console.log(item.dataset.delcnt);
-
-let cnt = 0;
-deleteBtn.forEach((element) => console.log(element));
-itemRow.forEach((element) => console.log(element));
-
-for (let i = 0; i < deleteBtn.length; i++) {
-  deleteBtn[i].addEventListener("click", (event) => {
-    console.log("del btn is clicked");
-    console.log(itemRow[i].dataset.rowcnt);
-    console.log(deleteBtn[i].dataset.delcnt);
-    removeItem(cnt, i);
-    // if (itemRow[cnt].dataset.rowCnt == deleteBtn[cnt].dataset.delCnt) {
-    //   deleteBtn[i].parentElement.parentElement.remove();
-    //   console.log(deleteBtn[i].parentElement.parentElement);
-    // }
-  });
-}
 
 function addItem(event) {
   inputValue = input.value;
@@ -59,29 +38,28 @@ function addItem(event) {
 
   cnt++;
   items.append(item__row);
-  // console.log(event.currentTarget);
-  // console.log(event.target);
-  // event.currentTarget.value = "";
   event.target.value = "";
 }
 
+// remove items
+let deleteBtn = null;
+let item = null;
+
 function removeItem(cnt) {
+  deleteBtn = document.querySelectorAll(".item__delete");
+  item = document.querySelectorAll(".item");
+  if (deleteBtn === null || item === null) {
+    return;
+  }
   for (let i = 0; i < deleteBtn.length; i++) {
     deleteBtn[i].addEventListener("click", (event) => {
       console.log("del btn is clicked");
-      console.log(itemRow[i].dataset.rowcnt);
+      console.log(item[i].dataset.rowcnt);
       console.log(deleteBtn[i].dataset.delcnt);
-      // removeItem(cnt, i);
-      if (itemRow[cnt].dataset.rowCnt == deleteBtn[cnt].dataset.delCnt) {
+      if (item[i].dataset.rowcnt == deleteBtn[i].dataset.delcnt) {
         deleteBtn[i].parentElement.parentElement.remove();
         console.log(deleteBtn[i].parentElement.parentElement);
       }
     });
   }
-  // if (itemRow[cnt].dataset.rowCnt == deleteBtn[cnt].dataset.delCnt) {
-  //   deleteBtn[i].parentElement.parentElement.remove();
-  //   console.log(deleteBtn[i].parentElement.parentElement);
-  // }
 }
-removeItem(cnt);
-function start() {}
